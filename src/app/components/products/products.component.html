@@ -1,0 +1,69 @@
+<h2>Products</h2>
+
+<!-- Button to Add a New Product -->
+<button mat-raised-button color="primary" (click)="openAddForm()">Add New Product</button>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Products List</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <table mat-table [dataSource]="products" class="mat-elevation-z8">
+      
+      <!-- Product Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let product">{{ product.name }}</td>
+      </ng-container>
+
+      <!-- Manufacturer Column -->
+      <ng-container matColumnDef="manufacturer">
+        <th mat-header-cell *matHeaderCellDef> Manufacturer </th>
+        <td mat-cell *matCellDef="let product">{{ product.manufacturer }}</td>
+      </ng-container>
+
+      <!-- Style Column -->
+      <ng-container matColumnDef="style">
+        <th mat-header-cell *matHeaderCellDef> Style </th>
+        <td mat-cell *matCellDef="let product">{{ product.style }}</td>
+      </ng-container>
+
+      <!-- Purchase Price Column -->
+      <ng-container matColumnDef="purchasePrice">
+        <th mat-header-cell *matHeaderCellDef> Purchase Price </th>
+        <td mat-cell *matCellDef="let product">{{ product.purchasePrice | currency }}</td>
+      </ng-container>
+
+      <!-- Sale Price Column -->
+      <ng-container matColumnDef="salePrice">
+        <th mat-header-cell *matHeaderCellDef> Sale Price </th>
+        <td mat-cell *matCellDef="let product">{{ product.salePrice | currency }}</td>
+      </ng-container>
+
+      <!-- Quantity On Hand Column -->
+      <ng-container matColumnDef="quantityOnHand">
+        <th mat-header-cell *matHeaderCellDef> Quantity On Hand </th>
+        <td mat-cell *matCellDef="let product">{{ product.quantityOnHand }}</td>
+      </ng-container>
+
+      <!-- Commission Percentage Column -->
+      <ng-container matColumnDef="commissionPercentage">
+        <th mat-header-cell *matHeaderCellDef> Commission Percentage </th>
+        <td mat-cell *matCellDef="let product">{{ product.commissionPercentage }}%</td>
+      </ng-container>
+
+      <!-- Action Column -->
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let product">
+          <!-- Edit Button for each product -->
+          <button mat-raised-button color="primary" (click)="openEditForm(product)">Edit</button>
+        </td>
+      </ng-container>
+
+      <!-- Header and Row Definitions -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card-content>
+</mat-card>

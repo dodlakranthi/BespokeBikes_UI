@@ -1,0 +1,10 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; 
+  }
+
+  .form-container mat-form-field,
+.form-container button {
+  width: 15%; /* Set the width to 15% for form fields and button */
+}

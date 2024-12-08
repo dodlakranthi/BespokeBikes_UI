@@ -1,0 +1,38 @@
+<h2 mat-dialog-title>{{data ? 'Edit Product' : 'Add New Product'}}</h2>
+<mat-dialog-content>
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Product Name</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Manufacturer</mat-label>
+      <input matInput formControlName="manufacturer" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Style</mat-label>
+      <input matInput formControlName="style" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Purchase Price</mat-label>
+      <input matInput type="number" formControlName="purchasePrice" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Sale Price</mat-label>
+      <input matInput type="number" formControlName="salePrice" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Quantity On Hand</mat-label>
+      <input matInput type="number" formControlName="quantityOnHand" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Commission Percentage</mat-label>
+      <input matInput type="number" formControlName="commissionPercentage" />
+    </mat-form-field>
+
+    <div class="button-container">
+      <button mat-raised-button color="primary" type="submit" [disabled]="!productForm.valid">Submit</button>
+      <button mat-raised-button color="warn" type="button" (click)="onCancel()">Cancel</button>
+    </div>
+  </form>
+</mat-dialog-content>

@@ -1,0 +1,21 @@
+.button-container {
+    display: flex;
+    justify-content: flex-start; 
+    gap: 10px; 
+    margin-top: 20px; 
+  }
+  
+  button {
+    width: auto; 
+  }
+  
+
+  mat-form-field {
+    font-size: 14px;
+    width: 80%; /* Set the form field width to fill the container */
+  }
+  
+  mat-form-field input {
+    font-size: 14px;
+  }
+  

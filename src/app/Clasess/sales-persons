@@ -1,0 +1,11 @@
+export interface ISalePerson{
+    Id:number,
+    FirstName: string,
+    LastName: string,
+    Address: string,
+    PhoneNumber:string,
+    StartDate:Date,
+    TerminationDate:Date,
+    Manager:string
+
+}

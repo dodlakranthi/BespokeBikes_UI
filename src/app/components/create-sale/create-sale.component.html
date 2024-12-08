@@ -1,0 +1,53 @@
+<h2>Create a New Sale</h2>
+<div class="form-container">
+  <form [formGroup]="saleForm" (ngSubmit)="createSale()">
+    
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Select Customer</mat-label>
+      <mat-select formControlName="customerId" required>
+        <mat-option *ngFor="let customer of customers" [value]="customer.customerId">
+          {{ customer.firstName }} {{ customer.lastName }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="saleForm.get('customerId')?.invalid && saleForm.get('customerId')?.touched">
+        Customer is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Select Product</mat-label>
+      <mat-select formControlName="productId" required>
+        <mat-option *ngFor="let product of products" [value]="product.productId">
+          {{ product.name }} - ${{ product.salePrice }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="saleForm.get('productId')?.invalid && saleForm.get('productId')?.touched">
+        Product is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Select Salesperson</mat-label>
+      <mat-select formControlName="salespersonId" required>
+        <mat-option *ngFor="let salesperson of salespersons" [value]="salesperson.salesPersonId">
+          {{ salesperson.firstName }} {{ salesperson.lastName }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="saleForm.get('salespersonId')?.invalid && saleForm.get('salespersonId')?.touched">
+        Salesperson is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Sales Date</mat-label>
+      <input matInput formControlName="saleDate" required placeholder="MM/DD/YYYY" />
+      <mat-error *ngIf="saleForm.get('saleDate')?.invalid && saleForm.get('saleDate')?.touched">
+        Invalid date format. Please use MM/DD/YYYY.
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="saleForm.invalid">
+      Create Sale
+    </button>
+  </form>
+</div>

@@ -1,0 +1,61 @@
+<h2>Sales Persons</h2>
+
+<!-- Button to Add a New Salesperson -->
+<button mat-raised-button color="primary" (click)="openForm()">Add New Salesperson</button>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Sales Persons List</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <table mat-table [dataSource]="salespersons" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef> First Name </th>
+        <td mat-cell *matCellDef="let salesperson">{{ salesperson.firstName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef> Last Name </th>
+        <td mat-cell *matCellDef="let salesperson">{{ salesperson.lastName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef> Address </th>
+        <td mat-cell *matCellDef="let salesperson">{{ salesperson.address }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef> Phone </th>
+        <td mat-cell *matCellDef="let salesperson">{{ salesperson.phone }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="startDate">
+        <th mat-header-cell *matHeaderCellDef> Start Date </th>
+        <td mat-cell *matCellDef="let salesperson">{{ salesperson.startDate }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="terminationDate">
+        <th mat-header-cell *matHeaderCellDef> Termination Date </th>
+        <td mat-cell *matCellDef="let salesperson">{{ salesperson.terminationDate }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="manager">
+        <th mat-header-cell *matHeaderCellDef> Manager </th>
+        <td mat-cell *matCellDef="let salesperson">{{ salesperson.manager }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let salesperson">
+          <button mat-raised-button color="primary" (click)="openEditForm(salesperson)">
+            Edit
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card-content>
+</mat-card>

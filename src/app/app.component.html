@@ -1,0 +1,21 @@
+<div class="container">
+  <header class="header">
+    <!-- <img src="assets/logo.png" alt="BeSpoked Bikes" class="logo" /> Optional logo -->
+    <h1 class="title">BeSpoked Bikes</h1>
+  </header>
+  
+  <div class="main-content">
+    <nav class="sidebar">
+      <a routerLink="/salespersons" routerLinkActive="active">Sales Persons</a>
+      <a routerLink="/products" routerLinkActive="active">Products</a>
+      <a routerLink="/customers" routerLinkActive="active">Customers</a>
+      <a routerLink="/sales" routerLinkActive="active">Sales</a>
+      <a routerLink="/createnew-sale" routerLinkActive="active">Create New Sale</a>
+      <a routerLink="/quarterly-report" routerLinkActive="active">Quarterly Report</a>
+    </nav>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+

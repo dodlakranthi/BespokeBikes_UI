@@ -1,0 +1,99 @@
+/* Global Body Styling to Prevent Scrollbars */
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevent scrollbars on the body and html */
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f0f8ff, #dcdcdc); /* Background gradient */
+    height: 100%;
+    box-sizing: border-box; /* Include padding and borders in width/height calculations */
+}
+
+/* Container to hold the entire layout */
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;  /* Full screen height */
+}
+
+/* Header (Top left corner) */
+.header {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;  /* Dark background for header */
+    color: white;
+    position: fixed; /* Fixed to stay in place */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;  /* Make sure header stays on top */
+}
+
+.logo {
+    width: 40px;  /* Adjust logo size */
+    height: 40px;
+    margin-right: 10px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Flexbox container for sidebar and content */
+.main-content {
+    display: flex;
+    margin-top: 60px;  /* Space for the header */
+    height: calc(100vh - 60px);  /* Remaining space for the content */
+    overflow: hidden; /* Prevent overflow in the content area */
+}
+
+/* Sidebar styling */
+.sidebar {
+    width: 250px; /* Adjust width as needed */
+    background-color: #f4f4f4;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    height: 100%;  /* Ensure the sidebar takes full height */
+    position: fixed; /* Fixed to stay in place */
+    top: 85px;  /* Adjust to account for the header height */
+    left: 0;
+    z-index: 5;  /* Ensure sidebar stays under the header */
+}
+
+.sidebar a {
+    display: block;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #333;
+    background-color: #e4e4e4;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+/* Active link styling */
+.sidebar a.active {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Content area */
+.content {
+    flex-grow: 1; /* Take up remaining space */
+    padding: 20px;
+    margin-left: 285px; /* Offset content by the width of the sidebar */
+    background-color: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 100%;  /* Ensure content height matches the sidebar */
+    overflow: auto; /* Allow content to scroll if needed */
+}
+
+/* Styling for the title */
+h1 {
+    margin-bottom: 20px;
+    text-align: center;
+}

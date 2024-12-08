@@ -1,0 +1,49 @@
+<h2>Sales</h2>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Sales  List</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <table mat-table [dataSource]="sales" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="productName">
+        <th mat-header-cell *matHeaderCellDef> Product Name </th>
+        <td mat-cell *matCellDef="let sales">{{ sales.productName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="customerName">
+        <th mat-header-cell *matHeaderCellDef> Customer Name </th>
+        <td mat-cell *matCellDef="let sales">{{ sales.customerName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="saleDate">
+        <th mat-header-cell *matHeaderCellDef> Sale Date </th>
+        <td mat-cell *matCellDef="let sales">{{ sales.saleDate }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="salePrice">
+        <th mat-header-cell *matHeaderCellDef> Sale Price </th>
+        <td mat-cell *matCellDef="let sales">{{ sales.salePrice }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="discountedSalePrice">
+        <th mat-header-cell *matHeaderCellDef> Discounted Sale Price </th>
+        <td mat-cell *matCellDef="let sales">{{ sales.discountedSalePrice }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="salesPerson">
+        <th mat-header-cell *matHeaderCellDef> Sales Person </th>
+        <td mat-cell *matCellDef="let sales">{{ sales.salesPerson }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="salesPersonCommission">
+        <th mat-header-cell *matHeaderCellDef> Sales Person Commission </th>
+        <td mat-cell *matCellDef="let sales">{{ sales.salesPersonCommission }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card-content>
+</mat-card>
